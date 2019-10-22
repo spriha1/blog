@@ -37,9 +37,11 @@ class ArticleController extends Controller
         return $article;
     }
 
-    public function deleteArticle(Request $request)
+    public function deleteArticle($id)
     {
-        Article::destroy($request->id);
+        Article::destroy($id);
+        $response = 'Article deleted successfully';
+        return response($response, 200);
     }
 
 }

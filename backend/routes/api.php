@@ -34,7 +34,7 @@ use Illuminate\Http\Request;
     Route::middleware('auth:api')->group(function () {
         Route::post('/articles', 'ArticleController@addArticle');
         Route::put('/articles', 'ArticleController@updateArticle');
-        Route::delete('/articles', 'ArticleController@deleteArticle');
+        Route::delete('/articles/{id}', 'ArticleController@deleteArticle');
         Route::get('/logout', 'Api\AuthController@logout');
     });
 
