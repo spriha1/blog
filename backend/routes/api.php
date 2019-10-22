@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
     // public routes
     Route::post('/login', 'Api\AuthController@login')->name('login.api');
     Route::post('/register', 'Api\AuthController@register')->name('register.api');
+    Route::get('/articles', 'ArticleController@getArticles')->name('register.api');
 
     // private routes
     Route::middleware('auth:api')->group(function () {
