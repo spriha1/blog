@@ -26,13 +26,16 @@ use Illuminate\Http\Request;
     });
 
     // public routes
-    Route::post('/login', 'Api\AuthController@login')->name('login.api');
-    Route::post('/register', 'Api\AuthController@register')->name('register.api');
-    Route::get('/articles', 'ArticleController@getArticles')->name('register.api');
-
+    Route::post('/login', 'Api\AuthController@login');
+    Route::post('/register', 'Api\AuthController@register');
+    Route::get('/articles', 'ArticleController@getArticles');
+    
     // private routes
     Route::middleware('auth:api')->group(function () {
-        Route::get('/logout', 'Api\AuthController@logout')->name('logout');
+        Route::post('/articles', 'ArticleController@addArticle');
+        Route::put('/articles', 'ArticleController@updateArticle');
+        Route::delete('/articles', 'ArticleController@deleteArticle');
+        Route::get('/logout', 'Api\AuthController@logout');
     });
 
 // });

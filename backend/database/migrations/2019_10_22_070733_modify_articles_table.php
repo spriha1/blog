@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyUsersTable extends Migration
+class ModifyArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ModifyUsersTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->renameColumn('user_id', 'userId');
+            $table->dropColumn('image');
         });
     }
 
@@ -26,7 +26,7 @@ class ModifyUsersTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->renameColumn('userId', 'user_id');
+            $table->string('image');
         });
     }
 }
