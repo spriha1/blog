@@ -9,8 +9,10 @@ class ArticleController extends Controller
 {
     public function getArticles()
     {
+        // $articles = Article::select('id', 'title', 'details', 'excerpt');
         $articles = Article::all();
-        return $articles;
+        return response($articles, 200);
+        // return $articles;
     }
 
     public function addArticle(Request $request)
@@ -22,7 +24,8 @@ class ArticleController extends Controller
         $article->userId = $request->userId;
         $article->save();
 
-        return $article;
+        return response($article, 200);
+        // return $article;
     }
 
     public function updateArticle(Request $request)
@@ -34,7 +37,8 @@ class ArticleController extends Controller
         $article->user_id = $request->userId;
         $article->save();
 
-        return $article;
+        return response($article, 200);
+        // return $article;
     }
 
     public function deleteArticle($id)
