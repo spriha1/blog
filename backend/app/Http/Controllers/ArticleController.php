@@ -9,10 +9,11 @@ class ArticleController extends Controller
 {
     public function getArticles()
     {
-        // $articles = Article::select('id', 'title', 'details', 'excerpt');
-        $articles = Article::all();
+        $articles = Article::select('id', 'title', 'details', 'userId')
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5);
+        // $articles = Article::all();
         return response($articles, 200);
-        // return $articles;
     }
 
     public function addArticle(Request $request)
@@ -48,4 +49,8 @@ class ArticleController extends Controller
         return response($response, 200);
     }
 
+    public function upload(Request $request)
+    {
+        return($request->all());
+    }
 }
